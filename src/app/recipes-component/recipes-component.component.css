@@ -1,0 +1,14 @@
+.foodImg{
+    width: 98vw;
+}
+
+.subHead{
+    display: flex;
+    /* justify-content: s0; */
+    gap: 10px;
+    align-items: center;
+}
+
+.detailCard{
+    padding: 10px;
+}
