@@ -1,0 +1,14 @@
+
+<form [formGroup]="ingredientForm">
+    <input 
+        type="text" 
+        name="ingredient" 
+        [value]="ingredient?.value"
+        formControlName="ingredient"
+        >
+    <button (click)="onClick()">submit</button>
+</form>
+
+
+
+<!-- *ngFor="let i of ingredient?.value"  -->
