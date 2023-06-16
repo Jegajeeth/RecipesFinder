@@ -6,7 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponentComponent as HomeComponent } from './home-component/home-component.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipesComponentComponent as RecipesComponent } from './recipes-component/recipes-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +34,12 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule, MatFormFieldModule, MatInputModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

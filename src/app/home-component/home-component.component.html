@@ -1,14 +1,28 @@
 
-<form [formGroup]="ingredientForm">
-    <input 
+<form [formGroup]="ingredientForm" class="ingForm">
+    <mat-form-field
+    >
+        <input 
+        matInput
         type="text" 
-        name="ingredient" 
+        class="ingredient" 
+        placeholder="Enter the ingredient"
         [value]="ingredient?.value"
         formControlName="ingredient"
         >
-    <button (click)="onClick()">submit</button>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onClick()">submit</button>
 </form>
 
+<div *ngIf="showRecipes">
+    <div 
+    [id] = "recipe.id" 
+    (click) = "redirectToRecipe($event)" 
+    *ngFor="let recipe of recipeList" 
+    class= "recipeCard" >
+        <img [id] = "recipe.id" [src]="recipe.foodImg" alt="">
+        <p [id] = "recipe.id" >{{recipe.name}}</p>
+    </div>
+</div>
 
 
-<!-- *ngFor="let i of ingredient?.value"  -->
