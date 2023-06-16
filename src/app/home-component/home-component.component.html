@@ -14,7 +14,7 @@
     <button mat-raised-button color="primary" (click)="onClick()">submit</button>
 </form>
 
-<div *ngIf="showRecipes">
+<div *ngIf="showRecipes" class="recipeCont">
     <div 
     [id] = "recipe.id" 
     (click) = "redirectToRecipe($event)" 
