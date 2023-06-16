@@ -4,6 +4,7 @@ import {FormBuilder} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router } from '@angular/router';
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-home-component',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponentComponent {
 
-  constructor(private fb: FormBuilder,private router: Router){}
+  constructor(private fb: FormBuilder,private router: Router, private recipe: RecipesService){}
 
   showRecipes: boolean = false;
 
@@ -21,7 +22,7 @@ export class HomeComponentComponent {
   //   {
   //     id: 52,
   //     foodImg:
-  //       'https://cdn2.stylecraze.com/wp-content/uploads/2015/06/1.-Low-Fat-Tarragon-Chicken-Salad.jpg.webp',
+  //       ,
   //     name: 'Low-Fat Tarragon Chicken Salad',
   //     instruction: [
   //       'Add the chicken breast cubes, salt, and black pepper to a pot of boiling water.',
@@ -65,5 +66,9 @@ export class HomeComponentComponent {
   get ingredient() {
     return this.ingredientForm.get('ingredient')
   }
-
+  ngOnInit(){
+    this.recipe.getRecipes().subscribe((e:any)=>{
+      this.recipeList = e
+    })
+  }
 }
