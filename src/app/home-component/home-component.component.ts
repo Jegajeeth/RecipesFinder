@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder} from '@angular/forms'
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-home-component',
@@ -8,7 +8,7 @@ import {FormBuilder} from '@angular/forms'
 })
 export class HomeComponentComponent {
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,){}
 
   ingredientForm = this.fb.group({
     ingredient: [['sdfsd']]

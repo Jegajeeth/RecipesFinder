@@ -1,17 +1,24 @@
-<div>
-    <img src="" alt="food Img">
-    <h1>recipe Name</h1>
-    <p>Instruction</p>
+<div *ngFor="let recipe of recipeList">
+  <img [src]="recipe.foodImg" alt="food Img" />
+  <h1>{{ recipe.name }}</h1>
+  <h3>ingredients</h3>
+  <div *ngFor="let ingredient of recipe.ingredients">
+    <p>{{ "*" + ingredient }}</p>
+  </div>
+
+  <h3>Instruction</h3>
+  <div *ngFor="let instruction of recipe.instruction">
+    <p>{{ "*" + instruction }}</p>
+  </div>
+
+  <div>
     <div>
-        <ol>
-            <li>ingre 1</li>
-            <li>ingre 2</li>
-            <li>ingre 3</li>
-            <li>ingre 4</li>
-        </ol>
+      <h3>preperationTime</h3>
+      <p>{{ recipe.preperationTime }}</p>
     </div>
     <div>
-        <p>preperation Time</p>
-        <p>serving Size</p>
+      <h3>servingSize</h3>
+      <p>{{ recipe.servingSize }}</p>
     </div>
+  </div>
 </div>
