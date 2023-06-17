@@ -1,7 +1,9 @@
 
 <h2 class="subContHeading">{{showRecipes? 'Recipes' : "Favourite"}}</h2>
 
+
 <div *ngIf="showRecipes" id="recipe"  class="recipeCont">
+    <p *ngIf="recipeList.length == 0">No Recipe Found</p>
     <div 
     [id] = "recipe.id" 
     (click) = "redirectToRecipe($event)" 
