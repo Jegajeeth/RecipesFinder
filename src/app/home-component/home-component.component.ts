@@ -49,7 +49,7 @@ export class HomeComponentComponent {
 
 
   ingredientForm = this.fb.group({
-    ingredient: ['g']
+    ingredient: ['']
   })
 
   onClick(){

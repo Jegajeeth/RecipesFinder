@@ -2,10 +2,10 @@
 <form [formGroup]="ingredientForm" class="ingForm">
     <mat-form-field
     >
-        <input 
-        matInput
+    <input 
+    matInput
+    class="ingredient" 
         type="text" 
-        class="ingredient" 
         placeholder="Enter the ingredient"
         [value]="ingredient?.value"
         formControlName="ingredient"

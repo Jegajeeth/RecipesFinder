@@ -18,14 +18,17 @@
     object-fit: cover;
 }
 
-/* .ingredient{ */
+.ingredient{
     /* margin-top: 100px; */
-/* } */
+    /* background-color: yellow; */
+}
 
 .ingForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90vw;
+    /* height: 70vh; */
+    padding-top: 30vh;
+    /* background-color: red; */
 }
