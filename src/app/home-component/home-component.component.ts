@@ -48,13 +48,19 @@ export class HomeComponentComponent {
   // ];
 
 
+  IngreFormInp: Array<string> = ['']
+
   ingredientForm = this.fb.group({
     ingredient: ['']
   })
 
-  onClick(){
-    console.log(this.ingredient?.value);
-    this.showRecipes ? "" : this.showRecipes = !this.showRecipes
+  submitIngreForm(){
+    console.log(this.IngreFormInp);
+
+    
+    // this.ingredient?.value = this.IngreFormInp
+    // console.log(this.ingredient?.value);
+    // this.showRecipes ? "" : this.showRecipes = !this.showRecipes
   }
 
   redirectToRecipe(event: any){
@@ -66,7 +72,23 @@ export class HomeComponentComponent {
   get ingredient() {
     return this.ingredientForm.get('ingredient')
   }
+
+  eventType(index: any, event: any){
+    let typed = event.target.value
+
+    this.IngreFormInp[index] += typed
+  }
+  onDeleteIredient(i: any){
+  this.IngreFormInp.splice(i, 1)
+  }
+
+  onAddIngredient(){
+    this.IngreFormInp.push("")
+  }
+
   ngOnInit(){
+
+
     this.recipe.getRecipes().subscribe((e:any)=>{
       this.recipeList = e
     })

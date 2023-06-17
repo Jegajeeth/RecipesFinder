@@ -1,14 +1,21 @@
 
-<form [formGroup]="ingredientForm" class="ingForm">
-    
-    <input 
-    class="ingredient" 
+<form class="ingForm">
+    <div
+    class="newIng"
+    *ngFor="let input of IngreFormInp;index as i"
+    >
+
+        <input 
+        class="ingredient" 
         type="text" 
         placeholder="Enter the ingredient"
-        [value]="ingredient?.value"
-        formControlName="ingredient"
+        [value]="input"
+        (change)="eventType(i, $event)"
         >
-    <button mat-raised-button color="primary" (click)="onClick()">submit</button>
+        <button class="pillButton" *ngIf="i != 0" (click) = "onDeleteIredient(i)">➖</button>
+    </div>
+    <button class="pillButton" (click)="onAddIngredient()">➕</button>
+    <button mat-raised-button class="submitButton" (click)="submitIngreForm()">submit</button>
 </form>
 
 <div *ngIf="showRecipes" class="recipeCont">
