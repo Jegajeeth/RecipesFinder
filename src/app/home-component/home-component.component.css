@@ -21,6 +21,21 @@
 .ingredient{
     /* margin-top: 100px; */
     /* background-color: yellow; */
+    border: 0;
+    border-bottom: 1px black solid;
+    padding: 10px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+}
+
+.ingredient:focus{
+    border: 0;
+}
+
+.ingredient::placeholder{
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+    color: #9a9a9a;
 }
 
 .ingForm{
@@ -28,6 +43,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
     /* height: 70vh; */
     padding-top: 30vh;
     /* background-color: red; */

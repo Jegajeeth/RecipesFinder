@@ -1,16 +1,13 @@
 
 <form [formGroup]="ingredientForm" class="ingForm">
-    <mat-form-field
-    >
+    
     <input 
-    matInput
     class="ingredient" 
         type="text" 
         placeholder="Enter the ingredient"
         [value]="ingredient?.value"
         formControlName="ingredient"
         >
-    </mat-form-field>
     <button mat-raised-button color="primary" (click)="onClick()">submit</button>
 </form>
 
