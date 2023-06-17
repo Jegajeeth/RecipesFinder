@@ -1,0 +1,31 @@
+ .headerCont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 30px 25px 25px;
+ }
+
+.logo{
+    /* font-family: 'Diphylleia', serif; */
+    font-family: 'Comforter', cursive;
+/* font-family: 'Kanit', sans-serif; */
+    font-weight: 900;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.routes{
+    text-decoration: none;
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+}
+
+.mobileRoute{
+    display: none;
+}
+
+.routerComp{
+    display: flex;
+    gap: 20px;
+}
