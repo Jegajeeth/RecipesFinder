@@ -27,6 +27,19 @@ export class HomeComponentComponent {
 
   submitIngreForm(){
     // console.log(this.IngreFormInp);
+    let ingreSearchStr: string = ''  
+    this.IngreFormInp.map(e=>{
+      ingreSearchStr == "" ? 
+      ingreSearchStr = ingreSearchStr+e:
+      ingreSearchStr = ingreSearchStr+'|'+e
+    
+    })
+        this.recipe.getRecipesWithIngre(ingreSearchStr).subscribe(e=>{
+          this.recipeList = e
+          console.log(e);
+          
+        })
+
     // this.ingredient?.value = this.IngreFormInp
     // console.log(this.ingredient?.value);
     this.showRecipes ? 
@@ -34,17 +47,20 @@ export class HomeComponentComponent {
     : 
     this.showRecipes = !this.showRecipes
 
-    this.recipe.getRecipes().subscribe(e=>{this.recipeList = e}
-    )
+    // getRecipesWithIngre
+
+
+
     // this.showRecipes = !this.showRecipes
   }
 
-
+  clearTyped(index: any){
+    this.IngreFormInp[index] = ''
+  }
 
   eventType(index: any, event: any){
     let typed = event.target.value
-
-    this.IngreFormInp[index] += typed
+    this.IngreFormInp[index] = typed
   }
   onDeleteIredient(i: any){
   this.IngreFormInp.splice(i, 1)

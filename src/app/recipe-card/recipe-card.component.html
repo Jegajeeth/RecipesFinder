@@ -1,5 +1,5 @@
 
-<h2 class="subContHeading">{{showRecipes? 'recipes' : "Favouirts"}}</h2>
+<h2 class="subContHeading">{{showRecipes? 'Recipes' : "Favourite"}}</h2>
 
 <div *ngIf="showRecipes" id="recipe"  class="recipeCont">
     <div 
@@ -13,7 +13,7 @@
 </div>
 
 <div *ngIf="!showRecipes" id="favourits"  class="recipeCont">
-    <p class="recipeName" >hello</p>
+    <p class="recipeName" >No favourite</p>
         <!-- <div 
         [id] = "recipe.id" 
         (click) = "redirectToRecipe($event)" 
