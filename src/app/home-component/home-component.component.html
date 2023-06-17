@@ -10,7 +10,8 @@
         type="text" 
         placeholder="Enter the ingredient"
         [value]="input"
-        (change)="eventType(i, $event)"
+        (change)="eventType(i, $event)"   
+        (focus)="clearTyped(i)"
         >
         <button class="pillButton" *ngIf="i != 0" (click) = "onDeleteIredient(i)">➖</button>
     </div>
