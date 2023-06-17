@@ -1,0 +1,26 @@
+
+<h2 class="subContHeading">{{showRecipes? 'recipes' : "Favouirts"}}</h2>
+
+<div *ngIf="showRecipes" id="recipe"  class="recipeCont">
+    <div 
+    [id] = "recipe.id" 
+    (click) = "redirectToRecipe($event)" 
+    *ngFor="let recipe of recipeList" 
+    class= "recipeCard" >
+        <img [id] = "recipe.id" [src]="recipe.foodImg" class="foodImg" alt="">
+        <p [id] = "recipe.id" class="recipeName" >{{recipe.name}}</p>
+    </div>
+</div>
+
+<div *ngIf="!showRecipes" id="favourits"  class="recipeCont">
+    <p class="recipeName" >hello</p>
+        <!-- <div 
+        [id] = "recipe.id" 
+        (click) = "redirectToRecipe($event)" 
+        *ngFor="let recipe of recipeList" 
+        class= "recipeCard" >
+            <img [id] = "recipe.id" [src]="recipe.foodImg" alt="">
+            <p [id] = "recipe.id" >{{recipe.name}}</p>
+        </div> -->
+    </div>
+

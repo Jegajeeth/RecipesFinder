@@ -1,0 +1,33 @@
+.subContHeading{
+    margin-top: 100px;
+    padding: 0 30px;
+}
+
+.recipeCont{
+    display: flex;
+    flex-wrap: wrap;
+    
+    gap: 15px;
+    justify-content: space-around;
+    
+    padding: 30px 30px;
+}
+
+.recipeCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+.foodImg{
+    width: 250px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.recipeName{
+    font-weight: 400;
+    font-size: 16px;
+}

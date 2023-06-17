@@ -13,65 +13,33 @@ import { RecipesService } from '../recipes.service';
 })
 export class HomeComponentComponent {
 
-  constructor(private fb: FormBuilder,private router: Router, private recipe: RecipesService){}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router, 
+    private recipe: RecipesService
+    ){}
 
   showRecipes: boolean = false;
 
   recipeList: any = []
-  // [
-  //   {
-  //     id: 52,
-  //     foodImg:
-  //       ,
-  //     name: 'Low-Fat Tarragon Chicken Salad',
-  //     instruction: [
-  //       'Add the chicken breast cubes, salt, and black pepper to a pot of boiling water.',
-  //       'Cook it for 15-20 minutes.',
-  //       'In the meantime, slice the dried cranberries and toss them into a bowl.',
-  //       'Add yogurt, lime juice, sliced red onions, chopped celery, salt, tarragon, and freshly ground black pepper to the bowl and mix well.',
-  //       'Take the cooked chicken breast cubes out and toss them in the bowl. Your low-fat chicken tarragon salad is ready to eat!',
-  //     ],
-  //     ingredients: [
-  //       'chicken breast cubes',
-  //       ' dried cranberries',
-  //       'low-fat yogurt',
-  //       'lime juice',
-  //       'red onions',
-  //       'celery',
-  //       'tarragon',
-  //       'Salt',
-  //       'black pepper',
-  //     ],
-  //     preperationTime: 120,
-  //     servingSize: 3,
-  //   },
-  // ];
-
 
   IngreFormInp: Array<string> = ['']
 
-  ingredientForm = this.fb.group({
-    ingredient: ['']
-  })
-
   submitIngreForm(){
-    console.log(this.IngreFormInp);
-
-    
+    // console.log(this.IngreFormInp);
     // this.ingredient?.value = this.IngreFormInp
     // console.log(this.ingredient?.value);
-    // this.showRecipes ? "" : this.showRecipes = !this.showRecipes
+    this.showRecipes ? 
+    ''
+    : 
+    this.showRecipes = !this.showRecipes
+
+    this.recipe.getRecipes().subscribe(e=>{this.recipeList = e}
+    )
+    // this.showRecipes = !this.showRecipes
   }
 
-  redirectToRecipe(event: any){
-    const id = event.target.id
-    this.router.navigate([`/recipe/${id}`]);
-    
-  }
 
-  get ingredient() {
-    return this.ingredientForm.get('ingredient')
-  }
 
   eventType(index: any, event: any){
     let typed = event.target.value

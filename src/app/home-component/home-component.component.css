@@ -72,3 +72,14 @@
     background-color: #555;
     color: #fff;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 200,
+  'opsz' 48;
+  font-size: 80px;
+  margin-top: 80px;
+  color: #555;
+}

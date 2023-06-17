@@ -17,6 +17,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
     HomeComponent,
     RecipesComponent,
     HeaderComponent,
+    RecipeCardComponent,
   ],
   imports: [
     BrowserModule,
