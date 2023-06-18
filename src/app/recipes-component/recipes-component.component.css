@@ -6,12 +6,27 @@
     padding: 0 30px;
 }
 
+@media (max-width: 400px){
+    .recipe{
+        padding: 0 10px;
+    }
+}
+
+.prepCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
 .recipeCont{
     display: flex;
+    gap: 2%
 }
 
 .foodImg{
-    max-width: 95vw;
+    width: 50vw;
 }
 
 .addFont{

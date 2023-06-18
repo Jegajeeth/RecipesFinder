@@ -1,7 +1,20 @@
 <div class="recipe">
   <div class="recipeCont">
     <img [src]="recipes.foodImg" alt="food Img" class="foodImg" />
-
+    <div class="prepCont">
+      <div class="subHead">
+        <h3 class="addFont">preperationTime</h3>
+        <p class="addFont">{{ recipes.preperationTime }}</p>
+      </div>
+  
+      <div class="subHead">
+        <h3 class="addFont">servingSize</h3>
+        <p class="addFont">{{ recipes.servingSize }}</p>
+      </div>
+  
+      <button class="favourite" [style]="style" (click)="handleFav()">Fav</button>
+    </div>
+  </div>
     <div class="detailCard">
       <h1 class="addFont">{{ recipes.name }}</h1>
 
@@ -18,19 +31,7 @@
         {{ "* " + instruction }}
       </p>
     </div>
-  </div>
+  
 
-  <div>
-    <div class="subHead">
-      <h3 class="addFont">preperationTime</h3>
-      <p class="addFont">{{ recipes.preperationTime }}</p>
-    </div>
-
-    <div class="subHead">
-      <h3 class="addFont">servingSize</h3>
-      <p class="addFont">{{ recipes.servingSize }}</p>
-    </div>
-
-    <button class="favourite" [style]="style" (click)="handleFav()">Fav</button>
-  </div>
+  
 </div>
