@@ -1,14 +1,55 @@
+*{
+    font-family: 'Kanit', sans-serif;
+}
+
+.recipe{
+    padding: 0 30px;
+}
+
+.recipeCont{
+    display: flex;
+}
+
 .foodImg{
-    width: 98vw;
+    max-width: 95vw;
+}
+
+.addFont{
+    font-family: 'Kanit', sans-serif;
 }
 
 .subHead{
     display: flex;
-    /* justify-content: s0; */
     gap: 10px;
     align-items: center;
+    font-family: 'Kanit', sans-serif;
 }
 
 .detailCard{
     padding: 10px;
+}
+
+.ingredientsCont{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.ingredients{
+    background-color: #e5e5e5;
+    padding: 10px 15px;
+    border-radius: 30px;
+}
+
+
+.favourite{
+border: 0;
+width: 50px;
+height: 50px;
+border-radius: 30px;
+}
+
+.favourite:hover{
+    
+    box-shadow: 0px 0px 6px 5px #bbb;
 }

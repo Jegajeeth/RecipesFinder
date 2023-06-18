@@ -11,29 +11,15 @@ export class RecipeCardComponent {
 
   constructor(
     private router: Router, 
-    private recipe: RecipesService
     ){}
 
     @Input() IngreFormInp:Array<string> = []
   @Input() recipeList: any = []
   @Input() showRecipes: boolean = true;
+
   redirectToRecipe(event: any){
     const id = event.target.id
-    // this.router.navigate([`/recipe/${id}`]);
-    console.log(this.IngreFormInp);
-    
+    this.router.navigate([`/recipe/${id}`]);
     
   }
-
-  
-
-  ngOnInit(){
-    console.log("hi");
-    console.log(this.IngreFormInp);
-    
-    
-  }
-
-
-
 }

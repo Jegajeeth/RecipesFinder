@@ -1,27 +1,36 @@
-<div *ngFor="let recipe of recipeList">
-  <img [src]="recipe.foodImg" alt="food Img" class="foodImg" />
-  <div class="detailCard">
+<div class="recipe">
+  <div class="recipeCont">
+    <img [src]="recipes.foodImg" alt="food Img" class="foodImg" />
 
-      <h1>{{ recipe.name }}</h1>
-      <h3>ingredients</h3>
-      <div *ngFor="let ingredient of recipe.ingredients">
-          <p>{{ "*" + ingredient }}</p>
-        </div>
-        
-        <h3>Instruction</h3>
-        <div *ngFor="let instruction of recipe.instruction">
-            <p>{{ "*" + instruction }}</p>
-        </div>
-        
-        <div>
-            <div class="subHead">
-                <h3>preperationTime</h3>
-                <p>{{ recipe.preperationTime }}</p>
-            </div>
-            <div class="subHead">
-                <h3>servingSize</h3>
-                <p>{{ recipe.servingSize }}</p>
-            </div>
-        </div>
+    <div class="detailCard">
+      <h1 class="addFont">{{ recipes.name }}</h1>
+
+      <h2 class="addFont">ingredients</h2>
+
+      <div class="ingredientsCont">
+        <p class="addFont" class="ingredients" *ngFor="let ingredient of recipes.ingredients">
+          {{ ingredient }}
+        </p>
+      </div>
+
+      <h2 class="addFont">Instruction</h2>
+      <p class="addFont" *ngFor="let instruction of recipes.instruction">
+        {{ "* " + instruction }}
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <div class="subHead">
+      <h3 class="addFont">preperationTime</h3>
+      <p class="addFont">{{ recipes.preperationTime }}</p>
+    </div>
+
+    <div class="subHead">
+      <h3 class="addFont">servingSize</h3>
+      <p class="addFont">{{ recipes.servingSize }}</p>
+    </div>
+
+    <button class="favourite" [style]="style" (click)="handleFav()">Fav</button>
   </div>
 </div>

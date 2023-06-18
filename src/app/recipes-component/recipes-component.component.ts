@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-recipes-component',
@@ -7,42 +8,46 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./recipes-component.component.css'],
 })
 export class RecipesComponentComponent {
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private recipe: RecipesService) {}
 
-  recipeList: any = [
-    {
-      id: 52,
-      foodImg:
-        'https://cdn2.stylecraze.com/wp-content/uploads/2015/06/1.-Low-Fat-Tarragon-Chicken-Salad.jpg.webp',
-      name: 'Low-Fat Tarragon Chicken Salad',
-      instruction: [
-        'Add the chicken breast cubes, salt, and black pepper to a pot of boiling water.',
-        'Cook it for 15-20 minutes.',
-        'In the meantime, slice the dried cranberries and toss them into a bowl.',
-        'Add yogurt, lime juice, sliced red onions, chopped celery, salt, tarragon, and freshly ground black pepper to the bowl and mix well.',
-        'Take the cooked chicken breast cubes out and toss them in the bowl. Your low-fat chicken tarragon salad is ready to eat!',
-      ],
-      ingredients: [
-        'chicken breast cubes',
-        ' dried cranberries',
-        'low-fat yogurt',
-        'lime juice',
-        'red onions',
-        'celery',
-        'tarragon',
-        'Salt',
-        'black pepper',
-      ],
-      preperationTime: 120,
-      servingSize: 3,
-    },
-  ];
+  recipes: any = {};
+  recipeId: any = '';
+  isFav: boolean = false;
+  style: string = '';
+  favData: any = [];
+
+  updateFavData() {
+    this.recipe.getFavourties().subscribe((e: any) => {
+      this.favData = e.filter((ele: any) => ele.foodId == this.recipeId);
+      this.isFav = this.favData.length == 0 ? false : true;
+      this.style = this.isFav
+        ? 'background-color: rgb(232, 78, 109);color: #fff;'
+        : '';
+    });
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((route) => {
-      const recipeId = route.get('id');
-
-      console.log(recipeId);
+      this.recipeId = route.get('id');
+      this.recipe.getRecipe(this.recipeId).subscribe((e) => {
+        this.recipes = e;
+      });
     });
+
+    this.updateFavData();
+  }
+
+  handleFav() {
+    if (this.isFav) {
+      this.recipe.deleteFavourties(this.favData[0]?.id).subscribe(() => {
+        this.updateFavData();
+        this.isFav = !this.isFav;
+      });
+    } else {
+      this.recipe.addFavourties(this.recipeId).subscribe(() => {
+        this.updateFavData();
+        this.isFav = !this.isFav;
+      });
+    }
   }
 }

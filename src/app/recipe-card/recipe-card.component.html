@@ -1,28 +1,14 @@
+<h2 class="subContHeading">{{ showRecipes ? "Recipes" : "Favourite" }}</h2>
 
-<h2 class="subContHeading">{{showRecipes? 'Recipes' : "Favourite"}}</h2>
-
-
-<div *ngIf="showRecipes" id="recipe"  class="recipeCont">
-    <p *ngIf="recipeList.length == 0">No Recipe Found</p>
-    <div 
-    [id] = "recipe.id" 
-    (click) = "redirectToRecipe($event)" 
-    *ngFor="let recipe of recipeList" 
-    class= "recipeCard" >
-        <img [id] = "recipe.id" [src]="recipe.foodImg" class="foodImg" alt="">
-        <p [id] = "recipe.id" class="recipeName" >{{recipe.name}}</p>
-    </div>
+<div id="recipe" class="recipeCont">
+  <p class="recipeName" *ngIf="recipeList.length == 0">{{ showRecipes ? "No Recipe Found" : "No favourite" }}</p>
+  <div
+    [id]="recipe.id"
+    (click)="redirectToRecipe($event)"
+    *ngFor="let recipe of recipeList"
+    class="recipeCard"
+  >
+    <img [id]="recipe.id" [src]="recipe.foodImg" class="foodImg" alt="" />
+    <p [id]="recipe.id" class="recipeName">{{ recipe.name }}</p>
+  </div>
 </div>
-
-<div *ngIf="!showRecipes" id="favourits"  class="recipeCont">
-    <p class="recipeName" >No favourite</p>
-        <!-- <div 
-        [id] = "recipe.id" 
-        (click) = "redirectToRecipe($event)" 
-        *ngFor="let recipe of recipeList" 
-        class= "recipeCard" >
-            <img [id] = "recipe.id" [src]="recipe.foodImg" alt="">
-            <p [id] = "recipe.id" >{{recipe.name}}</p>
-        </div> -->
-    </div>
-
